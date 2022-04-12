@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".botswanaaccountancycollege.aboutBAC">
+
+
+    <ImageView
+        android:id="@+id/bacImageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="79dp"
+        android:layout_marginLeft="79dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="79dp"
+        android:layout_marginRight="79dp"
+        app:srcCompat="@drawable/bac_logo" />
+
+    <TextView
+        android:id="@+id/aboutBAcTextView"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bacImageView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="3dp"
+        android:fontFamily="monospace"
+        android:text="ABOUT US"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/VisionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/aboutBAcTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="monospace"
+        android:text="Vision"
+        android:textAlignment="center"
+        android:textColor="@color/Sky_blue"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/VisionExplainTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/VisionTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:text="To be a Leading Business School of Choice in Africa and Beyond." />
+
+    <TextView
+        android:id="@+id/MissionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/VisionExplainTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="monospace"
+        android:text="Mission"
+        android:textAlignment="center"
+        android:textColor="@color/Sky_blue"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/MissionExplainedTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/MissionTextView"
+        android:layout_marginTop="0dp"
+        android:text="To advance knowledge and skills in business education through teaching and learning, research and community engagement to meet the needs of the economy." />
+
+    <TextView
+        android:id="@+id/ValuesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/MissionExplainedTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="monospace"
+        android:text="Values"
+        android:textAlignment="center"
+        android:textColor="@color/Sky_blue"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/ValueExplainedTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ValuesTextView"
+        android:layout_marginTop="0dp"
+        android:text="Excellence:  Continuous pursuit of highest quality to enable commitment to the mandate of BAC and maintain standards that are globally recognised.
+        \nCollaboration: We are committed to working together as a team and in partnership with others for efficiency and effectiveness.
+        \nInnovation: We promote generation and implementation of new ideas for impactful change.
+        \nIntegrity: We uphold moral, ethical and professional principles in our engagements.
+        \nHumility: We embrace other people’s ideas and opinions and are courteous to others all the time.
+        \nAccountability: Accept own and complete duties within authority and take reponsibity for action." />
+
+    <TextView
+        android:id="@+id/MandateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ValueExplainedTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="monospace"
+        android:text="Mandate"
+        android:textAlignment="center"
+        android:textColor="@color/Sky_blue"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/MandateExplainedTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/MandateTextView"
+        android:layout_marginTop="0dp"
+        android:text="To provide a solution towards the skills capacity building and human capital development to meet the economic needs in Botswana and globally. The achieve this mandate,
+        \nBAC offers a diverse portfolio of programmes through these schools;
+        \n1. School of Finance and Professional Studies.
+        \n2. School of Computing and Information Systems in Partnership with University of Sunderland.
+        \n3. School of Business and Leisure in Partnership with Sheffield Hallam University and University of Derby (UK).
+        \n4. Consultancy and Corporate Leadership in-house training developed in partnership with industry.
+        \n5. Postgraduate Studies in partnership with University of Derby, University of Sunderland and Sheffield Hallam University." />
+
+
+</RelativeLayout>

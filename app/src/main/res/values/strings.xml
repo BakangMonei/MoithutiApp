@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Moithuti</string>
+
+    <!-- href tag is used to add link -->
+    <!-- link for apply here -->
+    <string name="hyperlink"><a href="https://thitoacademics.bac.ac.bw/">ApplyHere</a></string>
+
+
+</resources>

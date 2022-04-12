@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1003392237513",
+    "project_id": "schoolingapp-da848",
+    "storage_bucket": "schoolingapp-da848.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003392237513:android:ed1380a4b92f5fae5af218",
+        "android_client_info": {
+          "package_name": "com.research.schoolingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003392237513-9dmff1h5kvmv29c9ic3k309fi0s58dm2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5Tfl41gBqTUHXCOpZOQ5f5LXUUQTJu_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003392237513-9dmff1h5kvmv29c9ic3k309fi0s58dm2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

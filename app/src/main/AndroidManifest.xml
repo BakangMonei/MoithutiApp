@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.research.schoolingapp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Schoolingapp">
+        <activity
+            android:name=".botswanaaccountancycollege.biisc.MicrosoftAcademy"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.biisc.CiscoAcademy"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.researchandinno.ResearchExcellence"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.sps.ProjectManagement"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.sps.StrategyManagement"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.sfps.cima"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.sfps.ACCA"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.sbl.BusinessManagement"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.sbl.AccountingAndFinance"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.scis.BusinessIntelligenceAndDataAnalytics"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.scis.ComputerSystemsEngineering"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.SchoolOfPostGraduateStudies"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.SchoolOfFinanceAndProfessionalStudies"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.SchoolOfComputingAndInformationSystems"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.SchoolOfBusinessAndLeisure"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.researchAndInnovation"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.BIISC"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.aboutBAC"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.BACDepartments"
+            android:exported="false" />
+        <activity
+            android:name=".financialAid"
+            android:exported="false" />
+        <activity
+            android:name=".accreditedCourses"
+            android:exported="false" />
+        <activity
+            android:name=".UniversityOfBotswana"
+            android:exported="false" />
+        <activity
+            android:name=".userProfile"
+            android:exported="false" />
+        <activity
+            android:name=".BotswanaAccountancyCollege"
+            android:exported="false" />
+        <activity
+            android:name=".SuccessfulLogin"
+            android:exported="false" />
+        <activity
+            android:name=".forgotPassword"
+            android:exported="false" />
+        <activity
+            android:name=".twitter"
+            android:exported="false" />
+        <activity
+            android:name=".facebook"
+            android:exported="false" />
+        <activity
+            android:name=".instagram"
+            android:exported="false" />
+        <activity
+            android:name=".google"
+            android:exported="false" />
+        <activity
+            android:name=".signUp"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

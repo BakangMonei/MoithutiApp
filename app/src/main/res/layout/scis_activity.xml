@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".botswanaaccountancycollege.SchoolOfComputingAndInformationSystems">
+
+
+    <TextView
+        android:id="@+id/SCISTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:fontFamily="monospace"
+        android:gravity="center_horizontal"
+        android:text="School Of Computing And Informations Systems"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/DirectorOfSCISImageView"
+        android:layout_width="137dp"
+        android:layout_height="119dp"
+        android:layout_below="@+id/SCISTextView"
+        android:layout_marginTop="2dp"
+        app:srcCompat="@drawable/neiza" />
+
+    <TextView
+        android:id="@+id/DirectorOfSCISTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SCISTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:fontFamily="monospace"
+        android:text="Director Of SCIS"
+        android:textAlignment="center"
+        android:textColor="@color/Sky_blue"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/DirectorOfSCISNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/DirectorOfSCISTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Dr Monei Bakang Motshegwe"
+        android:textAlignment="center"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/aboutSCISTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/DirectorOfSCISImageView"
+        android:layout_marginTop="0dp"
+        android:text="Congratulations for taking a step in the right direction towards building a career in the field of Computing and ICT. Over the years that the SCIS has been delivering Computing and ICT courses, BAC has graduated over 600 graduates of the school. The graduates have moved on to take up employment in both the public and private sector, taking up jobs as Software Developers, Systems Analysts, Project Managers, Systems Administrators, Network Administrators, Help Desk Support Officers, IT Managers, Application Administrators etc. And indeed, some have gone on to start their own companies.
+        \nThis is your opportunity. Embrace it and four years down the line you too can be counted as an aspiring professional in the dynamic ICT Business and Industry. All it takes is dedication and commitment to your student profession, hard work and responsible conduct.
+        \nNo doubt the academic road ahead shall be challenging and you should be assured in the confidence that with the right approach to your studies and a positive attitude to your social wellbeing, you will prevail over these challenges. The reward will be worthwhile.
+        \nThe SCIS boasts a team of dedicated professionals who will guide you throughout your years of study and help you reach out for the degree qualification, as you head for the graduation podium. Make the best of your lecturers and the learning resources that are available to you at BAC. Above all, apply yourself to the utmost.
+        \nIt is thus with pleasure that the School of Computing and Information Systems welcomes you. Make your years of study at BAC worthwhile, now and into the future."
+        android:textSize="10dp" />
+
+    <Button
+        android:id="@+id/CSEButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/aboutSCISTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:backgroundTint="@color/Sky_blue"
+        android:text="Computer Systems Engineering"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/BIDAButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CSEButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:backgroundTint="@color/Sky_blue"
+        android:text="Business Intelligence And Data Analytics"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/black" />
+
+</RelativeLayout>

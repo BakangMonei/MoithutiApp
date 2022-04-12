@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SuccessfulLogin"
+    android:background="@color/black">
+
+    <TextView
+        android:id="@+id/TertiaryInstitutionsTitle"
+        android:layout_width="304dp"
+        android:layout_height="82dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:background="@color/black"
+        android:text="Tertiary Institutions"
+        android:textColor="@color/white"
+        android:textSize="32dp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/userProfile"
+        android:layout_width="90dp"
+        android:layout_height="78dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_toStartOf="@+id/TertiaryInstitutionsTitle"
+        android:layout_toLeftOf="@+id/TertiaryInstitutionsTitle"
+        app:srcCompat="@drawable/ic_baseline_person_outline_24" />
+
+    <Button
+        android:id="@+id/BotswanaAccountancyCollege"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TertiaryInstitutionsTitle"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:backgroundTint="@color/red"
+        android:padding="10dp"
+        android:text="Botswana Accountancy College"/>
+
+    <Button
+        android:id="@+id/UniversityOfBotswana"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/BotswanaAccountancyCollege"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="-3dp"
+        android:layout_marginRight="-3dp"
+        android:backgroundTint="@color/red"
+        android:padding="10dp"
+        android:text="University Of Botswana" />
+
+    <Button
+        android:id="@+id/financialAid"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/UniversityOfBotswana"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/red"
+        android:padding="10dp"
+        android:text="Financial Aid" />
+
+    <Button
+        android:id="@+id/accreditedCourses"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/financialAid"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/red"
+        android:padding="10dp"
+        android:text="Accredited Courses" />
+
+
+</RelativeLayout>
