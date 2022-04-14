@@ -1,9 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".botswanaaccountancycollege.SchoolOfBusinessAndLeisure">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/SBLTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:text="School Of Business And Leisure"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20dp"/>
+
+    <ImageView
+        android:id="@+id/SBLImageView"
+        android:layout_width="137dp"
+        android:layout_height="119dp"
+        android:layout_below="@+id/SBLTextView"
+        android:layout_marginTop="2dp"
+        app:srcCompat="@drawable/sbl_asele" />
+
+    <TextView
+        android:id="@+id/SBLDirectorTextView"
+        android:layout_width="213dp"
+        android:layout_height="53dp"
+        android:layout_below="@+id/SBLTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Director Of Business And Leisure"
+        android:textAlignment="center"
+        android:textColor="@color/Sky_blue"
+        android:textSize="17dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_below="@+id/SBLDirectorTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Mr Asele Godson Jr"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+</RelativeLayout>

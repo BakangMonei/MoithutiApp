@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".botswanaaccountancycollege.SchoolOfComputingAndInformationSystems">
 
-
     <TextView
         android:id="@+id/SCISTextView"
         android:layout_width="match_parent"
@@ -31,19 +30,19 @@
 
     <TextView
         android:id="@+id/DirectorOfSCISTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="213dp"
+        android:layout_height="53dp"
         android:layout_below="@+id/SCISTextView"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="13dp"
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
-        android:fontFamily="monospace"
-        android:text="Director Of SCIS"
+        android:fontFamily="sans-serif-black"
+        android:text="Director Of Computing And Information Systems"
         android:textAlignment="center"
         android:textColor="@color/Sky_blue"
-        android:textSize="25dp"
+        android:textSize="17dp"
         android:textStyle="bold" />
 
     <TextView

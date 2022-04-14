@@ -1,11 +1,9 @@
 package com.research.schoolingapp.botswanaaccountancycollege;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 import com.research.schoolingapp.R;
-
 public class SchoolOfBusinessAndLeisure extends AppCompatActivity {
 
     @Override
