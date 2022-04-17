@@ -8,6 +8,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+/*
+* 1. BAC
+* 2. UB
+* 3. FinAid
+* 4. Accredited Courses*/
+
 public class SuccessfulLogin extends AppCompatActivity {
 
     @Override

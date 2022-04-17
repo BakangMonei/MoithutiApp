@@ -1,20 +1,26 @@
 package com.research.schoolingapp;
 
 /*
- * 1. Done, left only to use the database system and code whereby the username are taken from the database.
- * This is the real main class
- *
- * Classes to be coded: BAC, UB, accreditedCourses, FinAid & forgot password
+ * 1. Code the login button to get information from database
+ * 2. Code the FinAid, Forgot Password and link to the SQLite(Using the update method)
+ * 3. Create form for Application of Sponsorship
+ * 4. Fix those login buttons for Facebook, Google, Instagram, and twitter with their methods
+ * 5. Make userProfile get information for specific student using 'EMAIL' as primary key
+ * 6.
  * */
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageButton;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.research.schoolingapp.databaseHelper.*;
+import com.research.schoolingapp.*;
 
 // For linking
 import android.content.Intent;
@@ -23,6 +29,8 @@ import android.content.Intent;
 import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
+
+    private DBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -41,21 +49,16 @@ public class MainActivity extends AppCompatActivity {
         ImageButton fbsignup = (ImageButton) findViewById(R.id.fbsignup);//
         ImageButton googlesignup = (ImageButton) findViewById(R.id.googlesignup);
 
+        dbHelper = new DBHelper(MainActivity.this);
 
 
         // admin and ADMIN & Successful LogIn
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
-                    // Correct Password
-                    Toast.makeText(MainActivity.this, "LOGIN Successful!!!!", Toast.LENGTH_LONG).show();
-                    Intent intentLogIn = new Intent(MainActivity.this, SuccessfulLogin.class);
-                    startActivity(intentLogIn);
-                }else
-                    // Incorrect Password
-                    Toast.makeText(MainActivity.this, "LOGIN FAILED!!!!!", Toast.LENGTH_LONG).show();
+
             }
+
         });
         // signUpButton
         signupbtn.setOnClickListener(new View.OnClickListener() {
@@ -117,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         googlesignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Toast.makeText(MainActivity.this, "Use your Google initials to sign in", Toast.LENGTH_LONG).show();
                 Intent intentGoogleSign = new Intent(MainActivity.this, google.class);
                 startActivity(intentGoogleSign);

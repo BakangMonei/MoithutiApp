@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/aaf_activity.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/about_bac_activity.xml" value="0.33" />
+        <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/accredited_courses_activity.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/bacdepartments_activity.xml" value="0.22" />
         <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/bida_activity.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/biisc_activity.xml" value="0.20416666666666666" />
@@ -12,6 +13,7 @@
         <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/botswana_accountancy_college_activity.xml" value="0.25" />
         <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/cima_activity.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/cisco_academy_activity.xml" value="1.3571428571428572" />
+        <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/financial_aid_activity.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/microsoft_academy_activity.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/sbl_activity.xml" value="0.33" />
         <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/scis_activity.xml" value="0.22" />
@@ -19,6 +21,8 @@
         <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/sign_up_activity.xml" value="0.15760869565217392" />
         <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/sps_activity.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/student_activity.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/successful_login_activity.xml" value="0.22" />
+        <entry key="..\:/Users/cse20-018/Desktop/TheApp/SchoolApp/app/src/main/res/layout/user_profile_activity.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
