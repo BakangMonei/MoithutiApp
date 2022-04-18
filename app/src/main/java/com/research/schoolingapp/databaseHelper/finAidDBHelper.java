@@ -6,9 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.research.schoolingapp.Students;
-import com.research.schoolingapp.financialAid;
-import com.research.schoolingapp.financingOfStudendets.studentsApplications;
+import com.research.schoolingapp.financingOfStudendets.*;
 
 import java.util.ArrayList;
 
@@ -82,7 +80,8 @@ public class finAidDBHelper extends SQLiteOpenHelper {
         // Moving our cursor to first position.
         if (cursorStudentsApplications.moveToFirst()){
             do{
-                studentsApplicationsArrayList.add(new studentsApplications(cursorStudentsApplications.getString(0),
+                studentsApplicationsArrayList.add(new studentsApplications(
+                        cursorStudentsApplications.getString(0),
                         cursorStudentsApplications.getString(1),
                         cursorStudentsApplications.getString(2),
                         cursorStudentsApplications.getString(3),

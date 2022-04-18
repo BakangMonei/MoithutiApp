@@ -23,7 +23,6 @@ public class DBHelper extends SQLiteOpenHelper{
 
 
     // Columns
-    private static final String ID_COL = "ID"; // Variable is for our id column.
     private static final String EMAIL_COL = "email"; // Variable is for our email column.
     private static final String FIRSTNAME_COL = "firstName"; // Variable is for our firstName column
     private static final String LASTNAME_COL = "lastName"; // Variable is for our lastName column.
@@ -75,6 +74,7 @@ public class DBHelper extends SQLiteOpenHelper{
         values.put(PHONENUMBER_COL, phoneNumber);
         values.put(PASS_COL, pass);
         values.put(REPASS_COL, rePass);
+
         // After adding all values we are passing content values to our table.
         db.insert(TABLE_NAME, null,values);
         // At last we are closing our database after adding database.
@@ -91,6 +91,7 @@ public class DBHelper extends SQLiteOpenHelper{
         if (cursorStudents.moveToFirst()){
             do{
                 studentsArrayList.add(new Students(
+                        cursorStudents.getString(0),
                         cursorStudents.getString(1),
                         cursorStudents.getString(2),
                         cursorStudents.getString(3),
@@ -100,8 +101,7 @@ public class DBHelper extends SQLiteOpenHelper{
                         cursorStudents.getString(7),
                         cursorStudents.getString(8),
                         cursorStudents.getString(9),
-                        cursorStudents.getString(10),
-                        cursorStudents.getString(11)));
+                        cursorStudents.getString(10)));
             }
             while (cursorStudents.moveToNext()); // moving our cursor to next
         }

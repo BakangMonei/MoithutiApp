@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
             }
-
         });
         // signUpButton
         signupbtn.setOnClickListener(new View.OnClickListener() {
@@ -95,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         // twitterSignIn
         twittersignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
         googlesignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Toast.makeText(MainActivity.this, "Use your Google initials to sign in", Toast.LENGTH_LONG).show();
                 Intent intentGoogleSign = new Intent(MainActivity.this, google.class);
                 startActivity(intentGoogleSign);
