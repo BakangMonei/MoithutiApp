@@ -10,10 +10,13 @@ import com.research.schoolingapp.financingOfStudendets.*;
 
 import java.util.ArrayList;
 
+/*
+ * 1. Add new Student
+ * 2. View Students
+ * 3. Update student
+ * 4. Delete Student*/
 
 public class finAidDBHelper extends SQLiteOpenHelper {
-
-
     // Creating a constant variables for our database.
     private static final String DB_NAME = "ApplicationsFromStudents"; // Variable is for our database name.
     private static final int DB_VERSION = 1; // Our database version

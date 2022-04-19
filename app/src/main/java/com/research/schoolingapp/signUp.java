@@ -113,16 +113,15 @@ public class signUp extends AppCompatActivity{
                 if(repass.isEmpty()){
                     registerRePass.setError("Password is needed");
                     registerRePass.requestFocus();
-                    if(repass != password){
-                        registerRePass.setError("Password does not match first password");
-                        registerRePass.requestFocus();
-                        return;
-                    }//
-                    else
-                        return;
+                    return;
                 }//
                 if(repass.length() < 6){
                     registerRePass.setError("Please enter a password more than 7 Characters");
+                    registerRePass.requestFocus();
+                    return;
+                }//
+                if(repass != password){
+                    registerRePass.setError("Password does not match first password");
                     registerRePass.requestFocus();
                     return;
                 }//
@@ -132,6 +131,7 @@ public class signUp extends AppCompatActivity{
                     return;
                 }
                 if (gender.isEmpty()) {
+                    String gender1 = "Male", gender2 = "Female";
                     registerGender.setError("Gender is needed!!");
                     registerGender.requestFocus();
                     return;
@@ -173,7 +173,6 @@ public class signUp extends AppCompatActivity{
                     registerPhoneNumber.setText("");
                     registerPassword.setText("");
                     registerRePass.setText("");
-
                 }
             }
         });

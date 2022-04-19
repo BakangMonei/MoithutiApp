@@ -6,8 +6,11 @@ public class Students {
     // Attributes
     public String email,firstName, lastName,  Gender, Address, Country, IDPassport, DOB, phoneNumber, pass, rePass;
 
-    // Constructors
+    // Empty Constructors
+    public Students(){
+    }
 
+    // Constructors
     public Students(String email, String firstName, String lastName, String gender, String address, String country, String IDPassport, String DOB, String phoneNumber, String pass, String rePass) {
         this.email = email;
         this.firstName = firstName;

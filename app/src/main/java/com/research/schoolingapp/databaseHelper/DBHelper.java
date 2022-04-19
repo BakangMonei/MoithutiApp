@@ -16,13 +16,10 @@ import android.database.sqlite.*; // SQLiteOpenHelper, SQLiteDatabase
 
 public class DBHelper extends SQLiteOpenHelper{
     // Creating a constant variables for our database.
-
     private static final String DB_NAME = "StudentsDB"; // Variable is for our database name.
     private static final int DB_VERSION = 1; // Our database version
     private static final String TABLE_NAME = "Users"; // Variable is for our table name.
 
-
-    // Columns
     private static final String EMAIL_COL = "email"; // Variable is for our email column.
     private static final String FIRSTNAME_COL = "firstName"; // Variable is for our firstName column
     private static final String LASTNAME_COL = "lastName"; // Variable is for our lastName column.
@@ -52,12 +49,12 @@ public class DBHelper extends SQLiteOpenHelper{
                 IDPASSPORT_COL + " TEXT," +
                 DOB_COL + " TEXT," +
                 PHONENUMBER_COL + " TEXT," +
-                PASS_COL + " PASSWORD," +
-                REPASS_COL + " PASSWORD)";
+                PASS_COL + " TEXT," +
+                REPASS_COL + " TEXT)";
         db.execSQL(query); // At last we are calling a exec sql method to execute above sql query
     }
 
-    // Method for adding new Student applications to our sqlite database.
+    // Method for adding new Student to our sqlite database.
     public void addNewStudent(String email, String firstName, String lastName, String gender, String address, String country, String IDPassport, String DOB, String phoneNumber, String pass, String rePass){
         SQLiteDatabase db = this.getWritableDatabase(); // This line we are creating a variable for our sqlite database and calling writable method as we are writing data in our database.
         ContentValues values = new ContentValues();// This line we are creating a variable for content values.
@@ -114,6 +111,7 @@ public class DBHelper extends SQLiteOpenHelper{
     public void updateStudent(Students students){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+
 
         values.put(EMAIL_COL, students.email);
         values.put(FIRSTNAME_COL, students.firstName);

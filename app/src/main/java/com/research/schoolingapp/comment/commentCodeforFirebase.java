@@ -214,4 +214,23 @@ public class commentCodeforFirebase {
                     Toast.makeText(MainActivity.this, "LOGIN FAILED!!!!!", Toast.LENGTH_LONG).show();
             }
         });*/
+
+    /*if(repass != password){
+                    registerRePass.setError("Password does not match first password");
+                    registerRePass.requestFocus();
+                    return;
+                }//
+                else
+                    return;*/
+    /*if(repass.length() < 6){
+                    registerRePass.setError("Please enter a password more than 7 Characters");
+                    registerRePass.requestFocus();
+                    return;
+                }//*/
+
+    /*if (password.length() < 6) {
+                    registerPassword.setError("Please enter a password more than 7 Characters");
+                    registerPassword.requestFocus();
+                    return;
+                }//*/
 }
