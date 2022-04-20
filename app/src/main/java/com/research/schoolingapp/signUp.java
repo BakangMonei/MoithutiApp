@@ -64,17 +64,17 @@ public class signUp extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 // Below line is to get data from all edit text fields.
+                String email = registerEmail.getText().toString();
                 String firstName = registerFirstName.getText().toString();
                 String lastName = registerLastName.getText().toString();
-                String email = registerEmail.getText().toString();
-                String password = registerPassword.getText().toString();
-                String repass = registerRePass.getText().toString();
-                String DOB = registerDOB.getText().toString();
                 String gender = registerGender.getText().toString();
-                String phoneNumber = registerPhoneNumber.getText().toString();
                 String address = registerPostalAddress.getText().toString();
                 String country = registerCountry.getText().toString();
                 String IDPassport = registerIDPass.getText().toString();
+                String DOB = registerDOB.getText().toString();
+                String phoneNumber = registerPhoneNumber.getText().toString();
+                String password = registerPassword.getText().toString();
+                String repass = registerRePass.getText().toString();
 
                 // Validating if the text fields are empty or not.
                 if (firstName.isEmpty()) {
@@ -156,24 +156,21 @@ public class signUp extends AppCompatActivity{
                     registerIDPass.requestFocus();
                     return;
                 }
+                dbHelper.addNewStudent(email, firstName, lastName, gender, address, country, IDPassport, DOB, phoneNumber, password, repass);
+                // After adding the data we are displaying a toast message.
+                Toast.makeText(signUp.this, "Student has been added.", Toast.LENGTH_SHORT).show();
 
-                else{
-                    dbHelper.addNewStudent(email, firstName, lastName, gender, address, country, IDPassport, DOB, phoneNumber, password, repass);
-                    // After adding the data we are displaying a toast message.
-                    Toast.makeText(signUp.this, "Student has been added.", Toast.LENGTH_SHORT).show();
-
-                    registerEmail.setText("");
-                    registerFirstName.setText("");
-                    registerLastName.setText("");
-                    registerGender.setText("");
-                    registerPostalAddress.setText("");
-                    registerCountry.setText("");
-                    registerIDPass.setText("");
-                    registerDOB.setText("");
-                    registerPhoneNumber.setText("");
-                    registerPassword.setText("");
-                    registerRePass.setText("");
-                }
+                registerEmail.setText("");
+                registerFirstName.setText("");
+                registerLastName.setText("");
+                registerGender.setText("");
+                registerPostalAddress.setText("");
+                registerCountry.setText("");
+                registerIDPass.setText("");
+                registerDOB.setText("");
+                registerPhoneNumber.setText("");
+                registerPassword.setText("");
+                registerRePass.setText("");
             }
         });
     }
