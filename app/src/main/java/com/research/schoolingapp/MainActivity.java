@@ -9,16 +9,26 @@ package com.research.schoolingapp;
  * 6.
  * */
 
+
+/*
+* SignUp firebase done*/
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageButton;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.research.schoolingapp.databaseHelper.*;
 import com.research.schoolingapp.*;
 
@@ -31,11 +41,14 @@ import com.google.android.material.button.MaterialButton;
 public class MainActivity extends AppCompatActivity {
 
     private DBHelper dbHelper;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mAuth =FirebaseAuth.getInstance();
 
         TextView username = (TextView) findViewById(R.id.username); //
         TextView password = (TextView) findViewById(R.id.password); //
@@ -56,7 +69,14 @@ public class MainActivity extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String txtEmail = username.getText().toString().trim();
+                String txtPassword = password.getText().toString();
 
+                if(TextUtils.isEmpty(txtEmail) || TextUtils.isEmpty(txtPassword)){
+                    Toast.makeText(MainActivity.this,"Empty Credentials",Toast.LENGTH_LONG).show();
+                }else{
+                    loginUser(txtEmail,txtPassword);
+                }
             }
         });
         // signUpButton
@@ -121,6 +141,30 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Use your Google initials to sign in", Toast.LENGTH_LONG).show();
                 Intent intentGoogleSign = new Intent(MainActivity.this, google.class);
                 startActivity(intentGoogleSign);
+            }
+        });
+    }
+
+    private void loginUser(String username, String password){
+        mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>(){
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+
+                    Toast.makeText(MainActivity.this,"Login Success", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(MainActivity.this, SuccessfulLogin.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+                Toast.makeText(MainActivity.this,e.getMessage().toString(),
+                        Toast.LENGTH_LONG).show();
+
             }
         });
     }

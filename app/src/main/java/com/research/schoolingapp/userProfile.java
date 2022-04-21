@@ -1,29 +1,53 @@
 package com.research.schoolingapp;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.research.schoolingapp.databaseHelper.DBHelper;
 
 import java.util.ArrayList;
 
 public class userProfile extends AppCompatActivity {
+
+    private final static int REQUEST_CALL=1;
+    String email,firstName, lastName,  Gender, Address, Country, IDPassport, DOB, phoneNumber, physicalAdd;
+
+    EditText registerPhoneNumber, registerLastName, registerFirstName, registerDOB, registerGender, registerEmail,
+            registerPhysicalAddress, registerPostalAddress, registerIDPass, registerCountry;
+    private Uri imageUri;
+    private String imageUrl;
     private DBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_profile_activity);
 
+        Intent userID = getIntent();
+        String receivedID = userID.getStringExtra("memberID");
+
         // TextView
         TextView  surnameView = (TextView) findViewById(R.id.surnameView);
         TextView nameView = (TextView) findViewById(R.id.nameView);
         TextView dateOfBirthView = (TextView) findViewById(R.id.dateOfBirthView);
-        TextView  emailView= (TextView) findViewById(R.id.emailView);
+        TextView emailView= (TextView) findViewById(R.id.emailView);
         TextView genderView = (TextView) findViewById(R.id.genderView);
         TextView phoneNumberView = (TextView) findViewById(R.id.phoneNumberView);
         TextView physicalAddressView= (TextView) findViewById(R.id.physicalAddressView);
@@ -31,6 +55,8 @@ public class userProfile extends AppCompatActivity {
         TextView IDPassportView = (TextView) findViewById(R.id.IDPassportView);
         TextView countryView = (TextView) findViewById(R.id.countryView);
         TextView profilePage = (TextView) findViewById(R.id.profilePage);
+
+        ImageView profilePic = (ImageView) findViewById(R.id.profilePic);
 
         // creating a new dbHelper class and passing our context to it.
         dbHelper = new DBHelper(userProfile.this);
@@ -50,23 +76,80 @@ public class userProfile extends AppCompatActivity {
         profilePage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String students ="";
-                ArrayList<Students> allStudentDetails = dbHelper.readStudents();
-                for (Students s : allStudentDetails){
-                    students = students + s.getEmail() + "\n";
-                    Toast.makeText(getApplicationContext(),s.getEmail().toString(),Toast.LENGTH_SHORT).show();
-                }
-                registerFirstName.setText(students);
-                registerLastName.setText(students);
-                registerDOB.setText(students);
-                registerEmail.setText(students);
-                registerGender.setText(students);
-                registerPhoneNumber.setText(students);
-                registerPhysicalAddress.setText(students);
-                registerPostalAddress.setText(students);
-                registerIDPass.setText(students);
-                registerCountry.setText(students);
+                loadUserDetails(receivedID);
+                Intent intent = new Intent(userProfile.this, userProfile.class);
+                intent.putExtra("memberID",receivedID);
+                startActivity(intent);
             }
         });
+
+        registerPhoneNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makePhoneCall();
+            }
+        });
+    }
+
+    private void makePhoneCall() {
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:"+ registerPhoneNumber.getText().toString()));
+
+        if (ActivityCompat.checkSelfPermission(getApplicationContext(),
+                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(userProfile.this,
+                    new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
+        }else {
+            startActivity(callIntent);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CALL) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                makePhoneCall();
+            }
+        }
+    }
+
+    private void loadUserDetails(String receivedID) {
+
+        FirebaseDatabase.getInstance().getReference().child("Users").child(receivedID)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Students member = snapshot.getValue(Students.class);
+                        registerEmail.setText(member.getEmail().toString());
+                        registerFirstName.setText(member.getFirstName().toString());
+                        registerLastName.setText(member.getLastName().toString());
+                        registerDOB.setText(member.getDOB().toString());
+                        registerGender.setText(member.getGender().toString());
+                        registerPhysicalAddress.setText(member.getAddress().toString());
+                        registerPostalAddress.setText(member.getAddress().toString());
+                        registerPhoneNumber.setText(member.getPhoneNumber().toString());
+                        registerIDPass.setText(member.getIDPassport().toString());
+                        registerCountry.setText(member.getCountry().toString());
+
+                        email = member.getEmail();
+                        firstName = member.getFirstName();
+                        lastName = member.getLastName();
+                        Address = member.getAddress();
+                        physicalAdd = member.getAddress();
+                        Gender = member.getGender();
+                        Country = member.getCountry();
+                        IDPassport = member.getIDPassport();
+                        DOB = member.getDOB();
+                        phoneNumber = member.getPhoneNumber();
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
     }
 }
