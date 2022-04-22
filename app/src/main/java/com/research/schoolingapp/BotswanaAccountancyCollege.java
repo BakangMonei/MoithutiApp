@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.research.schoolingapp.administratorsSchool.addStuSchool;
 import com.research.schoolingapp.botswanaaccountancycollege.*;
 
 import org.w3c.dom.Text;
@@ -34,7 +35,7 @@ public class BotswanaAccountancyCollege extends AppCompatActivity {
 
         Button bacDepartments = (Button) findViewById(R.id.bacDepartments);
         Button aboutBACButton = (Button) findViewById(R.id.aboutBACButton);
-
+        Button apply = (Button) findViewById(R.id.apply);
 
         // method to redirect to provided link
         BACApplyHere.setMovementMethod(LinkMovementMethod.getInstance()); // https://thitoacademics.bac.ac.bw/
@@ -43,6 +44,14 @@ public class BotswanaAccountancyCollege extends AppCompatActivity {
         //
 
         // Buttons
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(BotswanaAccountancyCollege.this, "Fill in the form", Toast.LENGTH_LONG).show();
+                Intent intentX = new Intent(BotswanaAccountancyCollege.this, addStuSchool.class);
+                startActivity(intentX);
+            }
+        });
         bacDepartments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

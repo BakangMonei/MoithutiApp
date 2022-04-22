@@ -29,6 +29,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.research.schoolingapp.administratorsFinAid.adminFinAid;
+import com.research.schoolingapp.administratorsSchool.adminSchool;
 import com.research.schoolingapp.databaseHelper.*;
 import com.research.schoolingapp.*;
 
@@ -74,7 +76,23 @@ public class MainActivity extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(txtEmail) || TextUtils.isEmpty(txtPassword)){
                     Toast.makeText(MainActivity.this,"Empty Credentials",Toast.LENGTH_LONG).show();
-                }else{
+                }
+                else if (username.getText().toString().equals("SchoolAdmin") && password.getText().toString().equals("admin")){
+                    Toast.makeText(MainActivity.this, "LOGIN Successful!!!!", Toast.LENGTH_LONG).show();
+                    Intent intentLogIn = new Intent(MainActivity.this, adminSchool.class);
+                    startActivity(intentLogIn);
+                }
+                else if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
+                    Toast.makeText(MainActivity.this, "LOGIN Successful!!!!", Toast.LENGTH_LONG).show();
+                    Intent intentLogIn = new Intent(MainActivity.this, SuccessfulLogin.class);
+                    startActivity(intentLogIn);
+                }
+                else if (username.getText().toString().equals("FinAidAdmin") && password.getText().toString().equals("admin")){
+                    Toast.makeText(MainActivity.this, "LOGIN Successful!!!!", Toast.LENGTH_LONG).show();
+                    Intent intentLogInFinAid = new Intent(MainActivity.this, adminFinAid.class);
+                    startActivity(intentLogInFinAid);
+                }
+                else{
                     loginUser(txtEmail,txtPassword);
                 }
             }

@@ -10,10 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Schoolingapp">
         <activity
+            android:name=".administratorsSchool.addStuSchool"
+            android:exported="false" />
+        <activity
+            android:name=".botswanaaccountancycollege.applyHereBAC"
+            android:exported="false" />
+        <activity
+            android:name=".administratorsSchool.adminSchool"
+            android:exported="false" />
+        <activity
             android:name=".userProfileUpdate"
             android:exported="false" />
         <activity
-            android:name=".administrators.adminFinAid"
+            android:name=".administratorsFinAid.adminFinAid"
             android:exported="false" />
         <activity
             android:name=".exammtech.Student"

@@ -1,4 +1,4 @@
-package com.research.schoolingapp;
+package com.research.schoolingapp.administratorsSchool;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,19 +10,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.research.schoolingapp.databaseHelper.*;
-import com.research.schoolingapp.botswanaaccountancycollege.*;
+import com.research.schoolingapp.R;
+import com.research.schoolingapp.botswanaaccountancycollege.applyHereBAC;
+import com.research.schoolingapp.databaseHelper.schoolDBHelper;
 
-import org.w3c.dom.Text;
+public class addStuSchool extends AppCompatActivity {
 
-public class financialAid extends AppCompatActivity {
-
-    private finAidDBHelper finAidDBHelper;
-
+    private schoolDBHelper schooldbhelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.financial_aid_activity);
+        setContentView(R.layout.add_stu_school_activity);
 
         TextView ApplicationFormView = (TextView) findViewById(R.id.ApplicationFormView);
         TextView firstNameView = (TextView) findViewById(R.id.firstNameView);
@@ -30,24 +28,24 @@ public class financialAid extends AppCompatActivity {
         TextView emailView = (TextView) findViewById(R.id.emailView);
         TextView phoneNumberView = (TextView) findViewById(R.id.phoneNumberView);
         TextView physicalAddressView = (TextView) findViewById(R.id.physicalAddressView);
-        TextView schoolsOfChoiceTextView = (TextView) findViewById(R.id.schoolsOfChoiceTextView);
+        TextView pointsTextView = (TextView) findViewById(R.id.pointsTextView);
+        TextView courseOfChoiceTextView = (TextView) findViewById(R.id.courseOfChoiceTextView);
         TextView tertiary1 = (TextView) findViewById(R.id.tertiary1);
         TextView tertiary2 = (TextView) findViewById(R.id.tertiary2);
 
-        EditText registerFirstName = (EditText) findViewById(R.id.registerFirstName);//
-        EditText registerLastName = (EditText) findViewById(R.id.registerLastName);//
-        EditText registerEmail = (EditText) findViewById(R.id.registerEmail);//
-        EditText registerPhoneNumber = (EditText) findViewById(R.id.registerPhoneNumber);//
-        EditText registerPhysicalAddress = (EditText) findViewById(R.id.registerPhysicalAddress);//
-        EditText nameOfInstitution1 = (EditText) findViewById(R.id.nameOfInstitution1);
-        EditText nameOfInstitution2 = (EditText) findViewById(R.id.nameOfInstitution2);
-        EditText programme1 = (EditText) findViewById(R.id.programme1);
-        EditText programme2 = (EditText) findViewById(R.id.programme2);
+        EditText registerFirstName = (EditText) findViewById(R.id.registerFirstName);
+        EditText registerLastName = (EditText) findViewById(R.id.registerLastName);
+        EditText registerEmail = (EditText) findViewById(R.id.registerEmail);
+        EditText registerPhoneNumber = (EditText) findViewById(R.id.registerPhoneNumber);
+        EditText registerPhysicalAddress = (EditText) findViewById(R.id.registerPhysicalAddress);
+        EditText pointsEditText = (EditText) findViewById(R.id.pointsEditText);
+        EditText nameOfCourse1 = (EditText) findViewById(R.id.nameOfCourse1);
+        EditText nameOfCourse2 = (EditText) findViewById(R.id.nameOfCourse2);
 
-        Button applyForFinAidBtn = (Button) findViewById(R.id.applyForFinAidBtn);
-        finAidDBHelper = new finAidDBHelper(financialAid.this);
+        Button applyForSchoolBtn = (Button) findViewById(R.id.applyForSchoolBtn);
+        schooldbhelper = new schoolDBHelper(addStuSchool.this);
 
-        applyForFinAidBtn.setOnClickListener(new View.OnClickListener() {
+        applyForSchoolBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String firstName = registerFirstName.getText().toString();
@@ -55,10 +53,9 @@ public class financialAid extends AppCompatActivity {
                 String email = registerEmail.getText().toString();
                 String phoneNumber = registerPhoneNumber.getText().toString();
                 String physicalAddress = registerPhysicalAddress.getText().toString();
-                String Institution1 = nameOfInstitution1.getText().toString();
-                String Institution2 = nameOfInstitution2.getText().toString();
-                String course1 = programme1.getText().toString();
-                String course2 = programme2.getText().toString();
+                String Points = pointsEditText.getText().toString();
+                String course1 = nameOfCourse1.getText().toString();
+                String course2 = nameOfCourse2.getText().toString();
 
                 // Validating
                 if (firstName.isEmpty()) {
@@ -92,40 +89,35 @@ public class financialAid extends AppCompatActivity {
                     registerPhysicalAddress.requestFocus();
                     return;
                 }
-                if (Institution1.isEmpty()) {
-                    nameOfInstitution1.setError("nameOfInstitution1 is needed!!");
-                    nameOfInstitution1.requestFocus();
-                    return;
-                }
-                if (Institution2.isEmpty()) {
-                    nameOfInstitution2.setError("nameOfInstitution2 is needed!!");
-                    nameOfInstitution2.requestFocus();
+
+                if (Points.isEmpty()) {
+                    pointsEditText.setError("nameOfInstitution2 is needed!!");
+                    pointsEditText.requestFocus();
                     return;
                 }
                 if (course1.isEmpty()) {
-                    programme1.setError("programme1 is needed!!");
-                    programme1.requestFocus();
+                    nameOfCourse1.setError("programme1 is needed!!");
+                    nameOfCourse1.requestFocus();
                     return;
                 }
                 if (course2.isEmpty()) {
-                    programme2.setError("programme2 is needed!!");
-                    programme2.requestFocus();
+                    nameOfCourse2.setError("programme2 is needed!!");
+                    nameOfCourse2.requestFocus();
                     return;
                 }
                 else{
-                    finAidDBHelper.newStudentApplications(email, firstName, lastName, physicalAddress, phoneNumber, Institution1, course1, Institution2, course2);
+                    schooldbhelper.newStudentSchoolApplications(email, firstName, lastName, physicalAddress, phoneNumber, Points, course1, course2);
                     // After adding the data we are displaying a toast message.
-                    Toast.makeText(financialAid.this, "SuccessfullyApplied", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(addStuSchool.this, "Student has been added.", Toast.LENGTH_SHORT).show();
 
                     registerEmail.setText("");
                     registerFirstName.setText("");
                     registerLastName.setText("");
                     registerPhysicalAddress.setText("");
                     registerPhoneNumber.setText("");
-                    nameOfInstitution1.setText("");
-                    programme1.setText("");
-                    nameOfInstitution2.setText("");
-                    programme2.setText("");
+                    pointsEditText.setText("");
+                    nameOfCourse1.setText("");
+                    nameOfCourse2.setText("");
                 }
             }
         });

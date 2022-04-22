@@ -1,15 +1,17 @@
-package com.research.schoolingapp.financingOfStudendets;
+package com.research.schoolingapp.administratorsFinAid;
 
-public class studentsApplications {
+import android.content.Context;
+
+public class admin {
     // Attributes
     public String email, firstName, lastName, address, phoneNumber, institute1, course1, institute2, course2;
 
     // Empty constructors
-    public studentsApplications(){
+    public admin(){
     }
 
     // Constructors
-    public studentsApplications(String email, String firstName, String lastName, String address, String phoneNumber, String institute1, String course1, String institute2, String course2) {
+    public admin(String email, String firstName, String lastName, String address, String phoneNumber, String institute1, String course1, String institute2, String course2) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -19,6 +21,9 @@ public class studentsApplications {
         this.course1 = course1;
         this.institute2 = institute2;
         this.course2 = course2;
+    }
+
+    public admin(Context context) {
     }
 
     // Getters

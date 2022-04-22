@@ -12,21 +12,27 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.EmailAuthCredential;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.research.schoolingapp.databaseHelper.DBHelper;
 
+import java.net.PasswordAuthentication;
 import java.util.ArrayList;
 
 public class userProfile extends AppCompatActivity {
 
+    private signUp signingUp;
     private final static int REQUEST_CALL=1;
     String email,firstName, lastName,  Gender, Address, Country, IDPassport, DOB, phoneNumber, physicalAdd;
 
@@ -72,6 +78,9 @@ public class userProfile extends AppCompatActivity {
         EditText registerPostalAddress = (EditText) findViewById(R.id.registerPostalAddress);
         EditText registerIDPass = (EditText) findViewById(R.id.registerIDPass);
         EditText registerCountry = (EditText) findViewById(R.id.registerCountry);
+        Button DeleteAccountButton = (Button) findViewById(R.id.DeleteAccountButton);
+
+        signingUp = new signUp(userProfile.this);
 
         profilePage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,8 +98,39 @@ public class userProfile extends AppCompatActivity {
                 makePhoneCall();
             }
         });
+
+        DeleteAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Students member = new Students();
+                FirebaseDatabase.getInstance().getReference().child("Users").child(member.getEmail()).removeValue()
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    Toast.makeText(view.getContext(),"Member Deleted !",Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+            }
+        });
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK && requestCode == userProfile.REQUEST_CALL){
+        }
+        else{
+            Toast.makeText(this,"Try Again",Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this,userProfile.class));
+            finish();
+        }
+    }
+
+    // Delete Account
+    private void deleteAccount(){
+    }
+    // Make phone call
     private void makePhoneCall() {
         Intent callIntent = new Intent(Intent.ACTION_CALL);
         callIntent.setData(Uri.parse("tel:"+ registerPhoneNumber.getText().toString()));
@@ -104,6 +144,7 @@ public class userProfile extends AppCompatActivity {
         }
     }
 
+    // onRequestPermissionsResult
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -114,6 +155,7 @@ public class userProfile extends AppCompatActivity {
         }
     }
 
+    // loadUserDetails
     private void loadUserDetails(String receivedID) {
 
         FirebaseDatabase.getInstance().getReference().child("Users").child(receivedID)

@@ -42,6 +42,10 @@ public class signUp extends AppCompatActivity{
     private FirebaseAuth mAuth;
     ProgressBar progressBar;
 
+    public signUp(Context context){
+
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

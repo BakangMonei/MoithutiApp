@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".financialAid">
+    tools:context=".botswanaaccountancycollege.applyHereBAC">
 
     <TextView
         android:id="@+id/ApplicationFormView"
@@ -108,6 +108,24 @@
         android:textSize="16dp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/pointsTextView"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/physicalAddressView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center_horizontal"
+        android:text="Points Obtained"
+
+        android:textAlignment="center"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/registerFirstName"
         android:layout_width="wrap_content"
@@ -179,7 +197,7 @@
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/schoolsOfChoiceTextView"
+        android:id="@+id/courseOfChoiceTextView"
         android:layout_width="213dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ApplicationFormView"
@@ -187,14 +205,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="99dp"
-        android:layout_marginLeft="99dp"
-        android:layout_marginTop="244dp"
-        android:layout_marginEnd="99dp"
-        android:layout_marginRight="99dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="337dp"
+        android:layout_marginEnd="103dp"
+        android:layout_marginRight="103dp"
         android:fontFamily="monospace"
         android:gravity="center_horizontal"
-        android:text="Tertiary Of Choice"
+        android:text="Course Of Choice"
         android:textAlignment="center"
         android:textSize="25dp"
         android:textStyle="bold" />
@@ -203,7 +221,7 @@
         android:id="@+id/tertiary1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/schoolsOfChoiceTextView"
+        android:layout_below="@+id/courseOfChoiceTextView"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="35dp"
@@ -219,7 +237,7 @@
         android:id="@+id/tertiary2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/programme1"
+        android:layout_below="@+id/nameOfCourse1"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="35dp"
@@ -232,7 +250,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/nameOfInstitution1"
+        android:id="@+id/nameOfCourse1"
         android:layout_width="328dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tertiary1"
@@ -245,22 +263,9 @@
         android:hint="Name Of Institution"
         android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/programme1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/nameOfInstitution1"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="2dp"
-        android:ems="10"
-        android:hint="Programme Of Study"
-        android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/nameOfInstitution2"
+        android:id="@+id/nameOfCourse2"
         android:layout_width="334dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tertiary2"
@@ -273,22 +278,9 @@
         android:hint="Name Of Institution"
         android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/programme2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/nameOfInstitution2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="2dp"
-        android:ems="10"
-        android:hint="Programme Of Study"
-        android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/applyForFinAidBtn"
+        android:id="@+id/applyForSchoolBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -299,5 +291,20 @@
         android:layout_marginBottom="50dp"
         android:backgroundTint="@color/darkBlue"
         android:text="Apply" />
+
+    <EditText
+        android:id="@+id/pointsEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/registerPhysicalAddress"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:ems="10"
+        android:hint="Points Obtained"
+        android:inputType="textPersonName" />
+
 
 </RelativeLayout>
