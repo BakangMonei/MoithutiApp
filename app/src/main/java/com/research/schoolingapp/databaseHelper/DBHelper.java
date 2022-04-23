@@ -3,6 +3,7 @@ package com.research.schoolingapp.databaseHelper;
 import java.util.*;
 import com.research.schoolingapp.*;
 import com.research.schoolingapp.financingOfStudendets.studentsApplications;
+import com.research.schoolingapp.forgetPass.changePass;
 
 import android.content.*; // Context, ContentValues
 import android.database.*; // Cursors
@@ -112,7 +113,6 @@ public class DBHelper extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-
         values.put(EMAIL_COL, students.email);
         values.put(FIRSTNAME_COL, students.firstName);
         values.put(LASTNAME_COL, students.lastName);
@@ -124,11 +124,20 @@ public class DBHelper extends SQLiteOpenHelper{
         values.put(PHONENUMBER_COL, students.phoneNumber);
         values.put(PASS_COL, students.pass);
         values.put(REPASS_COL, students.rePass);
-
         // Updating row
         db.update(TABLE_NAME, values, EMAIL_COL + " = ?", new String[] {String.valueOf(students.getEmail())});
         db.close();
+    }
+    // forgot password for sqlite
+    public void changeForgottenPass(changePass change){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
 
+        values.put(EMAIL_COL, change.emailChange);
+        values.put(PASS_COL, change.password1);
+        values.put(REPASS_COL, change.password2);
+        db.update(TABLE_NAME, values, EMAIL_COL + " = ?", new String[] {String.valueOf(change.getEmailChange())});
+        db.close();
     }
 
     // Method for deleting student
@@ -143,5 +152,10 @@ public class DBHelper extends SQLiteOpenHelper{
         // this method is called to check if the table exists already.
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
+    }
+
+
+    public void changeForgottenPass() {
+
     }
 }

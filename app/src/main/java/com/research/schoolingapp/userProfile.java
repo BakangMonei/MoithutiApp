@@ -78,6 +78,8 @@ public class userProfile extends AppCompatActivity {
         EditText registerPostalAddress = (EditText) findViewById(R.id.registerPostalAddress);
         EditText registerIDPass = (EditText) findViewById(R.id.registerIDPass);
         EditText registerCountry = (EditText) findViewById(R.id.registerCountry);
+
+        Button LogOutBtn = (Button) findViewById(R.id.LogOutBtn);
         Button DeleteAccountButton = (Button) findViewById(R.id.DeleteAccountButton);
 
         signingUp = new signUp(userProfile.this);
