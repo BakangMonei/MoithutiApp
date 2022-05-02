@@ -8,8 +8,6 @@ package com.research.schoolingapp;
  * 5. Make userProfile get information for specific student using 'EMAIL' as primary key
  * 6.
  * */
-
-
 /*
 * SignUp firebase done*/
 import androidx.annotation.NonNull;
