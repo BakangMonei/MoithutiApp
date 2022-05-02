@@ -15,14 +15,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.EmailAuthCredential;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.research.schoolingapp.databaseHelper.DBHelper;
@@ -32,12 +35,17 @@ import java.util.ArrayList;
 
 public class userProfile extends AppCompatActivity {
 
-    private signUp signingUp;
+    private signUp SU;
     private final static int REQUEST_CALL=1;
     String email,firstName, lastName,  Gender, Address, Country, IDPassport, DOB, phoneNumber, physicalAdd;
 
     EditText registerPhoneNumber, registerLastName, registerFirstName, registerDOB, registerGender, registerEmail,
             registerPhysicalAddress, registerPostalAddress, registerIDPass, registerCountry;
+
+    private DatabaseReference mRootRef;
+    private FirebaseAuth mAuth;
+    ProgressBar progressBar;
+
     private Uri imageUri;
     private String imageUrl;
     private DBHelper dbHelper;
@@ -45,6 +53,11 @@ public class userProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_profile_activity);
+
+        // Firebase
+        mRootRef = FirebaseDatabase.getInstance().getReference();
+        mAuth=FirebaseAuth.getInstance();
+        progressBar = new ProgressBar(this);
 
         Intent userID = getIntent();
         String receivedID = userID.getStringExtra("memberID");
@@ -82,7 +95,18 @@ public class userProfile extends AppCompatActivity {
         Button LogOutBtn = (Button) findViewById(R.id.LogOutBtn);
         Button DeleteAccountButton = (Button) findViewById(R.id.DeleteAccountButton);
 
-        signingUp = new signUp(userProfile.this);
+        // SU = new signUp(userProfile.this);
+
+        // LogOut button
+        LogOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentLogOut = new Intent(userProfile.this, MainActivity.class);
+                Toast.makeText(userProfile.this, "Successfully logged out", Toast.LENGTH_SHORT).show();
+                startActivity(intentLogOut);
+                finish();
+            }
+        });
 
         profilePage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,7 +142,7 @@ public class userProfile extends AppCompatActivity {
         });
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK && requestCode == userProfile.REQUEST_CALL){
         }
@@ -164,17 +188,19 @@ public class userProfile extends AppCompatActivity {
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Students member = snapshot.getValue(Students.class);
-                        registerEmail.setText(member.getEmail().toString());
-                        registerFirstName.setText(member.getFirstName().toString());
-                        registerLastName.setText(member.getLastName().toString());
-                        registerDOB.setText(member.getDOB().toString());
-                        registerGender.setText(member.getGender().toString());
-                        registerPhysicalAddress.setText(member.getAddress().toString());
-                        registerPostalAddress.setText(member.getAddress().toString());
-                        registerPhoneNumber.setText(member.getPhoneNumber().toString());
-                        registerIDPass.setText(member.getIDPassport().toString());
-                        registerCountry.setText(member.getCountry().toString());
+                        Students  member = snapshot.getValue(Students.class);
+                        userProfile US = snapshot.getValue(userProfile.class);
+
+                        registerEmail.setText(member.getEmail());
+                        registerFirstName.setText(member.getFirstName());
+                        registerLastName.setText(member.getLastName());
+                        registerDOB.setText(member.getDOB());
+                        registerGender.setText(member.getGender());
+                        registerPhysicalAddress.setText(member.getAddress());
+                        registerPostalAddress.setText(member.getAddress());
+                        registerPhoneNumber.setText(member.getPhoneNumber());
+                        registerIDPass.setText(member.getIDPassport());
+                        registerCountry.setText(member.getCountry());
 
                         email = member.getEmail();
                         firstName = member.getFirstName();

@@ -12,7 +12,9 @@ import android.widget.Toast;
 * 1. BAC
 * 2. UB
 * 3. FinAid
-* 4. Accredited Courses*/
+* 4. Accredited Courses
+* 5. Apply Here
+* */
 
 public class SuccessfulLogin extends AppCompatActivity {
 

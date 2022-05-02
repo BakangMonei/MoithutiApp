@@ -19,6 +19,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageButton;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn); // Working
         MaterialButton forgotpass = (MaterialButton) findViewById(R.id.forgotpass); // Working (Layout Left)
-        MaterialButton signupbtn = (MaterialButton) findViewById(R.id.signupbtn); // Working
+        Button sign = (Button) findViewById(R.id.sign); // Working
 
         ImageButton instasignup = (ImageButton) findViewById(R.id.instasignup);//
         ImageButton twittersignup = (ImageButton) findViewById(R.id.twittersignup);//
@@ -75,20 +76,21 @@ public class MainActivity extends AppCompatActivity {
                 String txtPassword = password.getText().toString();
 
                 if(TextUtils.isEmpty(txtEmail) || TextUtils.isEmpty(txtPassword)){
-                    Toast.makeText(MainActivity.this,"Empty Credentials",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this,"Empty Credentials",Toast.LENGTH_SHORT).show();
                 }
-                else if (username.getText().toString().equals("SchoolAdmin") && password.getText().toString().equals("admin")){
-                    Toast.makeText(MainActivity.this, "LOGIN Successful!!!!", Toast.LENGTH_LONG).show();
+                if (username.getText().toString().equals("SchoolAdmin@gmail.com") && password.getText().toString().equals("admin")){
+                    Toast.makeText(MainActivity.this, "LOGIN Successful!!!!", Toast.LENGTH_SHORT).show();
                     Intent intentLogIn = new Intent(MainActivity.this, adminSchool.class);
                     startActivity(intentLogIn);
                 }
-                else if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
-                    Toast.makeText(MainActivity.this, "LOGIN Successful!!!!", Toast.LENGTH_LONG).show();
+
+                if (username.getText().toString().equals("admin@gmail.com") && password.getText().toString().equals("admin")){
+                    Toast.makeText(MainActivity.this, "LOGIN Successful!!!!", Toast.LENGTH_SHORT).show();
                     Intent intentLogIn = new Intent(MainActivity.this, SuccessfulLogin.class);
                     startActivity(intentLogIn);
                 }
-                else if (username.getText().toString().equals("FinAidAdmin") && password.getText().toString().equals("admin")){
-                    Toast.makeText(MainActivity.this, "LOGIN Successful!!!!", Toast.LENGTH_LONG).show();
+                if (username.getText().toString().equals("FinAidAdmin@gmail.com") && password.getText().toString().equals("admin")){
+                    Toast.makeText(MainActivity.this, "LOGIN Successful!!!!", Toast.LENGTH_SHORT).show();
                     Intent intentLogInFinAid = new Intent(MainActivity.this, adminFinAid.class);
                     startActivity(intentLogInFinAid);
                 }
@@ -97,11 +99,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
         // signUpButton
-        signupbtn.setOnClickListener(new View.OnClickListener() {
+
+        sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Please use the right words", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Please fill in all details", Toast.LENGTH_SHORT).show();
                 Intent intentSignUp = new Intent(MainActivity.this, signUp.class);
                 startActivity(intentSignUp);
             }
@@ -112,12 +116,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(password != username){
-                    Toast.makeText(MainActivity.this, "Please check your emails password or reset it", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Please check your emails password or reset it", Toast.LENGTH_SHORT).show();
                     Intent intentForgotPass = new Intent(MainActivity.this, forgotPassword.class);
                     startActivity(intentForgotPass);
                 }
                 else{
-                    Toast.makeText(MainActivity.this, "Your LogIn initials are OKAY!!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Your LogIn initials are OKAY!!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -126,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         instasignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Use your Instagram initials to sign in", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Use your Instagram initials to sign in", Toast.LENGTH_SHORT).show();
                 Intent intentInstaSign = new Intent(MainActivity.this, instagram.class);
                 startActivity(intentInstaSign);
             }

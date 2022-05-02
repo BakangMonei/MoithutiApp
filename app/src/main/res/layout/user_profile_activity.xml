@@ -324,6 +324,6 @@
         android:layout_marginStart="34dp"
         android:layout_marginLeft="34dp"
         android:layout_marginBottom="30dp"
-        android:text="Log Out"
-        android:backgroundTint="@color/darkBlue"/>
+        android:backgroundTint="@color/darkBlue"
+        android:text="Log Out" />
 </RelativeLayout>

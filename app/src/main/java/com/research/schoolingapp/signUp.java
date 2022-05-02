@@ -14,7 +14,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -25,30 +24,26 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 
 
 public class signUp extends AppCompatActivity{
-    private DBHelper dbHelper;
+    // private DBHelper dbHelper;
     private DatabaseReference mRootRef;
     private FirebaseAuth mAuth;
     ProgressBar progressBar;
 
-    public signUp(Context context){
-
-    }
+    // public signUp(Context context){}
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_activity);
 
@@ -83,7 +78,7 @@ public class signUp extends AppCompatActivity{
         EditText registerIDPass = (EditText) findViewById(R.id.registerIDPass);
 
         Button registerButton = (Button) findViewById(R.id.registerButton);
-        dbHelper = new DBHelper(signUp.this);
+        // dbHelper = new DBHelper(signUp.this);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,24 +95,14 @@ public class signUp extends AppCompatActivity{
                 String Country = registerCountry.getText().toString();
                 String IDPassport = registerIDPass.getText().toString();
 
-                if(TextUtils.isEmpty(email)
-                        || (TextUtils.isEmpty(firstName))
-                        || (TextUtils.isEmpty(lastName))
-                        || (TextUtils.isEmpty(Password))
-                        || (TextUtils.isEmpty(rePassword)
-                        || (TextUtils.isEmpty(DOB)
-                        || (TextUtils.isEmpty(Gender)
-                        || (TextUtils.isEmpty(phoneNumber)
-                        || (TextUtils.isEmpty(Address)
-                        || TextUtils.isEmpty(Country)
-                        || TextUtils.isEmpty(IDPassport)))))))
+                if(TextUtils.isEmpty(email) || (TextUtils.isEmpty(firstName)) || (TextUtils.isEmpty(lastName)) || (TextUtils.isEmpty(Password)) || (TextUtils.isEmpty(rePassword) || (TextUtils.isEmpty(DOB) || (TextUtils.isEmpty(Gender) || (TextUtils.isEmpty(phoneNumber) || (TextUtils.isEmpty(Address) || TextUtils.isEmpty(Country) || TextUtils.isEmpty(IDPassport)))))))
                 {
                     Toast.makeText(signUp.this,"Please Enter All Details",Toast.LENGTH_SHORT).show();
                 }
-                else if(Password.length()<6 || rePassword.length() < 6){
+                if(Password.length()<6 || rePassword.length() < 6){
                     Toast.makeText(signUp.this,"Password Too Short !",Toast.LENGTH_SHORT).show();
                 }
-                else if(Password == rePassword){
+                if(Password == rePassword && rePassword == Password){
                     Toast.makeText(signUp.this,"Passwords do not match",Toast.LENGTH_SHORT).show();
                 }
                 else {
@@ -127,7 +112,12 @@ public class signUp extends AppCompatActivity{
         });
     }
 
-    private void registerStudent(String registerEmail, String registerFirstName, String registerLastName, String registerPassword, String registerRePass, String registerDOB, String registerGender, String registerPhoneNumber, String registerPostalAddress, String registerCountry, String registerIDPass){
+    public void registerStudent(String registerEmail, String registerFirstName,
+                                String registerLastName, String registerPassword,
+                                String registerRePass, String registerDOB,
+                                String registerGender, String registerPhoneNumber,
+                                String registerPostalAddress, String registerCountry,
+                                String registerIDPass){
         progressBar.getProgress();
 
         mAuth.createUserWithEmailAndPassword(registerEmail,registerPassword).addOnSuccessListener(new OnSuccessListener<AuthResult>(){
@@ -144,15 +134,14 @@ public class signUp extends AppCompatActivity{
                 map.put("address", registerPostalAddress);
                 map.put("Country", registerCountry);
                 map.put("IDPassword", registerIDPass);
-                map.put("id",mAuth.getCurrentUser().getUid());
+
 
                 mRootRef.child("Users").child(mAuth.getCurrentUser().getUid()).setValue(map)
                         .addOnCompleteListener(new OnCompleteListener<Void>(){
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()){
-                                    Toast.makeText(signUp.this,"Successfully Registered",
-                                            Toast.LENGTH_LONG).show();
+                                    Toast.makeText(signUp.this,"Successfully Registered", Toast.LENGTH_LONG).show();
                                     Intent intent= new Intent(signUp.this, MainActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     startActivity(intent);
