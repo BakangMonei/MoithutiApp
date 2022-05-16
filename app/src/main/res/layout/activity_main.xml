@@ -8,15 +8,20 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/signin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/signin"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
         android:text="Sign in"
         android:textColor="@color/white"
         android:textSize="25dp"
-        android:textStyle="bold"
-        android:layout_margin="50dp"
-        android:gravity="center"/>
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/username"
@@ -94,12 +99,12 @@
 
 
     <TextView
+        android:id="@+id/others"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/others"
         android:layout_above="@id/socialicons"
-        android:text="Or Sign In With"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:text="Or Sign In With" />
 
     <LinearLayout
         android:id="@+id/socialicons"

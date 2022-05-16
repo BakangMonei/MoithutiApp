@@ -73,17 +73,7 @@ public class userProfileUpdate extends AppCompatActivity {
         // creating a new dbHelper class and passing our context to it.
         dbHelper = new DBHelper(userProfileUpdate.this);
 
-        // EditText
-        EditText registerLastName = (EditText) findViewById(R.id.registerLastName);
-        EditText registerFirstName = (EditText) findViewById(R.id.registerFirstName);
-        EditText registerDOB = (EditText) findViewById(R.id.registerDOB);
-        EditText registerEmail = (EditText) findViewById(R.id.registerEmail);
-        EditText registerGender = (EditText) findViewById(R.id.registerGender);
-        EditText registerPhoneNumber = (EditText) findViewById(R.id.registerPhoneNumber);
-        EditText registerPhysicalAddress = (EditText) findViewById(R.id.registerPhysicalAddress);
-        EditText registerPostalAddress = (EditText) findViewById(R.id.registerPostalAddress);
-        EditText registerIDPass = (EditText) findViewById(R.id.registerIDPass);
-        EditText registerCountry = (EditText) findViewById(R.id.registerCountry);
+        // textView2
 
         profilePage.setOnClickListener(new View.OnClickListener() {
             @Override

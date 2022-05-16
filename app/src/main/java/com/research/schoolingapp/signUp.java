@@ -35,9 +35,13 @@ import java.util.HashMap;
 
 public class signUp extends AppCompatActivity{
     // private DBHelper dbHelper;
-    private DatabaseReference mRootRef;
+    private DatabaseReference myRef;
     private FirebaseAuth mAuth;
+    private FirebaseDatabase database;
+
+
     ProgressBar progressBar;
+
 
     // public signUp(Context context){}
 
@@ -47,9 +51,12 @@ public class signUp extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_activity);
 
-        mRootRef = FirebaseDatabase.getInstance().getReference();
-        mAuth=FirebaseAuth.getInstance();
+        DatabaseReference myRef = database.getReference("message");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
         progressBar = new ProgressBar(this);
+
+        myRef.setValue("Hello, World");
 
 
         TextView RegistrationName = (TextView) findViewById(R.id.RegistrationName);
@@ -136,7 +143,7 @@ public class signUp extends AppCompatActivity{
                 map.put("IDPassword", registerIDPass);
 
 
-                mRootRef.child("Users").child(mAuth.getCurrentUser().getUid()).setValue(map)
+                myRef.child("Users").child(mAuth.getCurrentUser().getUid()).setValue(map)
                         .addOnCompleteListener(new OnCompleteListener<Void>(){
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {

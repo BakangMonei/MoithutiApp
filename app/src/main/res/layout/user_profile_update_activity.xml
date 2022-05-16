@@ -27,6 +27,14 @@
         android:textSize="30dp"
         android:textStyle="bold" />
 
+    <ImageView
+        android:id="@+id/profilePic"
+        android:layout_width="161dp"
+        android:layout_height="135dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        app:srcCompat="@drawable/ic_baseline_person_24" />
+    <!-- Surname -->
     <TextView
         android:id="@+id/surnameView"
         android:layout_width="151dp"
@@ -38,22 +46,19 @@
         android:layout_marginLeft="31dp"
         android:layout_marginTop="94dp"
         android:text="Surname" />
-
-    <EditText
-        android:id="@+id/registerLastName"
-        android:layout_width="153dp"
+    <TextView
+        android:id="@+id/surnameView2"
+        android:layout_width="151dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/surnameView"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="Surname"
-        android:inputType="textPersonName"
-        android:textSize="15dp" />
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="23dp"
+        android:hint="Surname" />
 
+    <!-- firstName -->
     <TextView
         android:id="@+id/nameView"
         android:layout_width="140dp"
@@ -64,244 +69,212 @@
         android:layout_marginTop="94dp"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
-        android:hint="Name(s)" />
-
-    <EditText
-        android:id="@+id/registerFirstName"
-        android:layout_width="139dp"
+        android:text="Name(s)"/>
+    <TextView
+        android:id="@+id/nameView2"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nameView"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginRight="22dp"
-        android:ems="10"
-        android:hint="Name(s)"
-        android:inputType="textPersonName"
-        android:textSize="15dp" />
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:hint="Name(s)" />
 
+    <!-- DOB -->
     <TextView
         android:id="@+id/dateOfBirthView"
         android:layout_width="153dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/registerLastName"
+        android:layout_below="@+id/surnameView2"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="33dp"
         android:text="Date Of Birth" />
-
-    <EditText
-        android:id="@+id/registerDOB"
+    <TextView
+        android:id="@+id/dateOfBirthView2"
         android:layout_width="153dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/dateOfBirthView"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="Date Of Birth"
-        android:inputType="date"
-        android:textSize="15dp" />
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="17dp"
+        android:hint="Date Of Birth" />
 
+    <!-- email -->
     <TextView
         android:id="@+id/emailView"
         android:layout_width="139dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/registerFirstName"
+        android:layout_below="@+id/nameView2"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginRight="22dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
         android:text="Email" />
-
-    <EditText
-        android:id="@+id/registerEmail"
+    <TextView
+        android:id="@+id/emailView2"
         android:layout_width="139dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/emailView"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginRight="22dp"
-        android:ems="10"
-        android:hint="*****@gmail.com"
-        android:inputType="textEmailAddress"
-        android:textSize="15dp" />
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        android:hint="Email" />
 
+    <!-- Gender -->
     <TextView
         android:id="@+id/genderView"
         android:layout_width="153dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/registerDOB"
+        android:layout_below="@+id/dateOfBirthView2"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="41dp"
         android:text="Gender" />
-
-    <EditText
-        android:id="@+id/registerGender"
-        android:layout_width="150dp"
+    <TextView
+        android:id="@+id/genderView2"
+        android:layout_width="153dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/genderView"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="27dp"
         android:layout_marginLeft="27dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="Gender"
-        android:inputType="textPersonName"
-        android:textSize="15dp" />
+        android:layout_marginTop="14dp"
+        android:hint="Gender" />
 
+    <!-- Phone Number -->
     <TextView
         android:id="@+id/phoneNumberView"
         android:layout_width="139dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/registerEmail"
+        android:layout_below="@+id/emailView2"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="29dp"
         android:layout_marginEnd="22dp"
         android:layout_marginRight="22dp"
         android:text="Phone Number" />
-
-    <EditText
-        android:id="@+id/registerPhoneNumber"
-        android:layout_width="142dp"
+    <TextView
+        android:id="@+id/phoneNumberView2"
+        android:layout_width="139dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/phoneNumberView"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginRight="22dp"
-        android:ems="10"
-        android:hint="+267"
-        android:inputType="phone"
-        android:textSize="15dp" />
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:hint="Phone Number" />
 
+    <!-- Physical Address -->
     <TextView
         android:id="@+id/physicalAddressView"
         android:layout_width="151dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/registerGender"
+        android:layout_below="@+id/genderView2"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="27dp"
         android:layout_marginLeft="27dp"
         android:layout_marginTop="29dp"
-        android:text="PhysicalAddress" />
-
-    <EditText
-        android:id="@+id/registerPhysicalAddress"
-        android:layout_width="150dp"
+        android:hint="PhysicalAddress" />
+    <TextView
+        android:id="@+id/physicalAddressView2"
+        android:layout_width="151dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/physicalAddressView"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="27dp"
         android:layout_marginLeft="27dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="Physical Address"
-        android:inputType="textPersonName"
-        android:textSize="15dp" />
+        android:layout_marginTop="17dp"
+        android:text="PhysicalAddress" />
 
+    <!-- Postal Address -->
     <TextView
         android:id="@+id/postalAddressView"
         android:layout_width="141dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/registerPhoneNumber"
+        android:layout_below="@+id/phoneNumberView2"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="29dp"
         android:layout_marginEnd="22dp"
         android:layout_marginRight="22dp"
         android:text="Postal Address" />
-
-    <EditText
-        android:id="@+id/registerPostalAddress"
-        android:layout_width="142dp"
+    <TextView
+        android:id="@+id/postalAddressView2"
+        android:layout_width="141dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/postalAddressView"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginRight="22dp"
-        android:ems="10"
-        android:hint="Postal Address"
-        android:inputType="textPersonName"
-        android:textSize="15dp" />
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Postal Address" />
 
+    <!-- ID and Passport -->
     <TextView
         android:id="@+id/IDPassportView"
         android:layout_width="145dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/registerPhysicalAddress"
+        android:layout_below="@+id/physicalAddressView2"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="38dp"
         android:text="ID/ Passport Number" />
-
-    <EditText
-        android:id="@+id/registerIDPass"
-        android:layout_width="146dp"
+    <TextView
+        android:id="@+id/IDPassportView2"
+        android:layout_width="145dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/IDPassportView"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="18dp"
-        android:ems="10"
-        android:hint="ID/ Passport Number"
-        android:inputType="textPersonName"
-        android:textSize="15dp" />
+        android:layout_marginStart="34dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="17dp"
+        android:hint="ID/ Passport Number" />
 
+    <!-- Country -->
     <TextView
         android:id="@+id/countryView"
         android:layout_width="145dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/registerPostalAddress"
+        android:layout_below="@+id/postalAddressView2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
+        android:text="Country" />
+    <TextView
+        android:id="@+id/countryView2"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/countryView"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="29dp"
         android:layout_marginEnd="22dp"
         android:layout_marginRight="22dp"
-        android:text="Country" />
+        android:hint="Country" />
 
-    <EditText
-        android:id="@+id/registerCountry"
-        android:layout_width="143dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/countryView"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginRight="22dp"
-        android:ems="10"
-        android:hint="Country"
-        android:inputType="textPersonName"
-        android:textSize="15dp" />
 
-    <ImageView
-        android:id="@+id/profilePic"
-        android:layout_width="149dp"
-        android:layout_height="110dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
-        app:srcCompat="@drawable/ic_baseline_person_24" />
+
+
 </RelativeLayout>

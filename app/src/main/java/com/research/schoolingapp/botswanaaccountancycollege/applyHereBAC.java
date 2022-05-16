@@ -60,7 +60,6 @@ public class applyHereBAC extends AppCompatActivity {
                 String Points = pointsEditText.getText().toString();
                 String course1 = nameOfCourse1.getText().toString();
                 String course2 = nameOfCourse2.getText().toString();
-
                 // Validating
                 if (firstName.isEmpty()) {
                     registerFirstName.setError("first-name is needed!!");
@@ -93,7 +92,6 @@ public class applyHereBAC extends AppCompatActivity {
                     registerPhysicalAddress.requestFocus();
                     return;
                 }
-
                 if (Points.isEmpty()) {
                     pointsEditText.setError("nameOfInstitution2 is needed!!");
                     pointsEditText.requestFocus();

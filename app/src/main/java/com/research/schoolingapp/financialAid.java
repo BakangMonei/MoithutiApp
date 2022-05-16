@@ -59,7 +59,6 @@ public class financialAid extends AppCompatActivity {
                 String Institution2 = nameOfInstitution2.getText().toString();
                 String course1 = programme1.getText().toString();
                 String course2 = programme2.getText().toString();
-
                 // Validating
                 if (firstName.isEmpty()) {
                     registerFirstName.setError("first-name is needed!!");

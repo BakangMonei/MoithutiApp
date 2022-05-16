@@ -38,9 +38,7 @@ public class userProfile extends AppCompatActivity {
     private signUp SU;
     private final static int REQUEST_CALL=1;
     String email,firstName, lastName,  Gender, Address, Country, IDPassport, DOB, phoneNumber, physicalAdd;
-
-    EditText registerPhoneNumber, registerLastName, registerFirstName, registerDOB, registerGender, registerEmail,
-            registerPhysicalAddress, registerPostalAddress, registerIDPass, registerCountry;
+    TextView surnameView2, nameView2, dateOfBirthView2, emailView2, genderView2, phoneNumberView2, physicalAddressView2, postalAddressView2, IDPassportView2, countryView2;
 
     private DatabaseReference mRootRef;
     private FirebaseAuth mAuth;
@@ -56,7 +54,7 @@ public class userProfile extends AppCompatActivity {
 
         // Firebase
         mRootRef = FirebaseDatabase.getInstance().getReference();
-        mAuth=FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         progressBar = new ProgressBar(this);
 
         Intent userID = getIntent();
@@ -81,16 +79,16 @@ public class userProfile extends AppCompatActivity {
         dbHelper = new DBHelper(userProfile.this);
 
         // EditText
-        EditText registerLastName = (EditText) findViewById(R.id.registerLastName);
-        EditText registerFirstName = (EditText) findViewById(R.id.registerFirstName);
-        EditText registerDOB = (EditText) findViewById(R.id.registerDOB);
-        EditText registerEmail = (EditText) findViewById(R.id.registerEmail);
-        EditText registerGender = (EditText) findViewById(R.id.registerGender);
-        EditText registerPhoneNumber = (EditText) findViewById(R.id.registerPhoneNumber);
-        EditText registerPhysicalAddress = (EditText) findViewById(R.id.registerPhysicalAddress);
-        EditText registerPostalAddress = (EditText) findViewById(R.id.registerPostalAddress);
-        EditText registerIDPass = (EditText) findViewById(R.id.registerIDPass);
-        EditText registerCountry = (EditText) findViewById(R.id.registerCountry);
+        TextView  surnameView2 = (TextView) findViewById(R.id.surnameView2);
+        TextView nameView2 = (TextView) findViewById(R.id.nameView2);
+        TextView dateOfBirthView2 = (TextView) findViewById(R.id.dateOfBirthView2);
+        TextView emailView2 = (TextView) findViewById(R.id.emailView2);
+        TextView genderView2 = (TextView) findViewById(R.id.genderView2);
+        TextView phoneNumberView2 = (TextView) findViewById(R.id.phoneNumberView2);
+        TextView physicalAddressView2 = (TextView) findViewById(R.id.physicalAddressView2);
+        TextView postalAddressView2 = (TextView) findViewById(R.id.postalAddressView2);
+        TextView IDPassportView2 = (TextView) findViewById(R.id.IDPassportView2);
+        TextView countryView2 = (TextView) findViewById(R.id.countryView2);
 
         Button LogOutBtn = (Button) findViewById(R.id.LogOutBtn);
         Button DeleteAccountButton = (Button) findViewById(R.id.DeleteAccountButton);
@@ -107,30 +105,24 @@ public class userProfile extends AppCompatActivity {
                 finish();
             }
         });
-
         profilePage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loadUserDetails(receivedID);
-                Intent intent = new Intent(userProfile.this, userProfile.class);
-                intent.putExtra("memberID",receivedID);
-                startActivity(intent);
+
             }
         });
-
-        registerPhoneNumber.setOnClickListener(new View.OnClickListener() {
+        phoneNumberView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 makePhoneCall();
             }
         });
-
         DeleteAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Students member = new Students();
-                FirebaseDatabase.getInstance().getReference().child("Users").child(member.getEmail()).removeValue()
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                FirebaseDatabase.getInstance().getReference().child("Users").child(member.getEmail()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful()){
@@ -155,11 +147,13 @@ public class userProfile extends AppCompatActivity {
 
     // Delete Account
     private void deleteAccount(){
+        deleteAccount();
     }
+
     // Make phone call
     private void makePhoneCall() {
         Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse("tel:"+ registerPhoneNumber.getText().toString()));
+        callIntent.setData(Uri.parse("tel: "+ phoneNumberView2.getText().toString()));
 
         if (ActivityCompat.checkSelfPermission(getApplicationContext(),
                 Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
@@ -183,38 +177,25 @@ public class userProfile extends AppCompatActivity {
 
     // loadUserDetails
     private void loadUserDetails(String receivedID) {
+        mRootRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-        FirebaseDatabase.getInstance().getReference().child("Users").child(receivedID)
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Students  member = snapshot.getValue(Students.class);
-                        userProfile US = snapshot.getValue(userProfile.class);
+                // Member member = snapshot.getValue(Member.class);
+                Students  member = snapshot.getValue(Students.class);
 
-                        registerEmail.setText(member.getEmail());
-                        registerFirstName.setText(member.getFirstName());
-                        registerLastName.setText(member.getLastName());
-                        registerDOB.setText(member.getDOB());
-                        registerGender.setText(member.getGender());
-                        registerPhysicalAddress.setText(member.getAddress());
-                        registerPostalAddress.setText(member.getAddress());
-                        registerPhoneNumber.setText(member.getPhoneNumber());
-                        registerIDPass.setText(member.getIDPassport());
-                        registerCountry.setText(member.getCountry());
-
-                        email = member.getEmail();
-                        firstName = member.getFirstName();
-                        lastName = member.getLastName();
-                        Address = member.getAddress();
-                        physicalAdd = member.getAddress();
-                        Gender = member.getGender();
-                        Country = member.getCountry();
-                        IDPassport = member.getIDPassport();
-                        DOB = member.getDOB();
-                        phoneNumber = member.getPhoneNumber();
-
-                    }
-
+                phoneNumber = member.getPhoneNumber();
+                emailView2.setText(member.getEmail());
+                nameView2.setText(member.getFirstName());
+                surnameView2.setText(member.getLastName());
+                dateOfBirthView2.setText(member.getDOB());
+                genderView2.setText(member.getGender());
+                physicalAddressView2.setText(member.getAddress());
+                postalAddressView2.setText(member.getAddress());
+                phoneNumberView2.setText(member.getPhoneNumber());
+                IDPassportView2.setText(member.getIDPassport());
+                countryView2.setText(member.getCountry());
+            }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 
