@@ -1,0 +1,41 @@
+\documentclass{ecsgdp}
+
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage[utf8x]{inputenc}
+
+
+\begin{document}
+
+\authors{Student 1, Student 2, Student 3, Student 4} %edit here to put team member list
+\title{Simple Book Example} %project title
+\date{02 June 2018} % submission date
+
+\frontmatter
+\maketitle
+\tableofcontents
+\listoffigures
+
+
+
+\mainmatter
+% this is how you include files from other group members
+%You may create separate folders for each member
+
+%
+% PLEASE VISIT https://www.sharelatex.com/ FOR MORE EXAMPLES
+%
+
+\include{./TeX_files/chapter01}
+\include{./TeX_files/chapter02}
+
+\include{./TeX_files/chapter3}
+\appendix
+%\include{./TeX_files/chapter3}
+
+\backmatter
+% bibliography, glossary and index would go here.
+\bibliographystyle{agsm}  
+\bibliography{bibo} % input of the refenrences
+
+\end{document}

@@ -1,0 +1,15 @@
+\begin{thebibliography}{xx}
+
+\harvarditem{Author}{n.d.}{Xbook}
+Author, S.  \harvardyearleft n.d.\harvardyearright , {\em Some title which is
+  long}.
+
+\harvarditem{Book}{2017}{book17}
+Book, O.  \harvardyearleft 2017\harvardyearright , {\em Our Book from with
+  tittle}, BAC.
+
+\harvarditem{Greenwade}{1993}{greenwade93}
+Greenwade, G.~D.  \harvardyearleft 1993\harvardyearright , `The {C}omprehensive
+  {T}ex {A}rchive {N}etwork ({CTAN})', {\em TUGBoat} {\bf 14}(3).
+
+\end{thebibliography}
