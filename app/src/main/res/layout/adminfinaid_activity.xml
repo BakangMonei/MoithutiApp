@@ -5,9 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".administratorsFinAid.adminFinAid">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
     <TextView
         android:id="@+id/adminTextView"
         android:layout_width="wrap_content"
@@ -86,5 +83,4 @@
         android:layout_marginTop="37dp"
         android:backgroundTint="@color/black"
         android:text="APPROVE" />
-    </ScrollView>
 </RelativeLayout>

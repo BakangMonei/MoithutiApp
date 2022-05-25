@@ -4,6 +4,7 @@
     <!-- href tag is used to add link -->
     <!-- link for apply here -->
     <string name="hyperlink"><a href="https://thitoacademics.bac.ac.bw/">ApplyHere</a></string>
+    <string name="accreditedCourses"><a href="https://drive.google.com/file/d/1CiXVVVPPrNvfrANdSnrscfwYr_tfUc9Y/view?fbclid=IwAR0LqID-krMVEq_m00RwhTHzHcpCTPX3IB18kov8Xsyh5UvS9c1GTBnlYp8"/>Accredited Courses</string>
 
 
 </resources>

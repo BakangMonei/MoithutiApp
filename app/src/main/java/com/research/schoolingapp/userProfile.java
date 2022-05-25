@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -108,8 +109,19 @@ public class userProfile extends AppCompatActivity {
         profilePage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadUserDetails(receivedID);
+                mRootRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        String value = dataSnapshot.getValue(String.class);
+                        Log.d(String.valueOf(userProfile.this), "firstName" + value);
+                    }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        // Failed to read value
+                        Log.w(String.valueOf(userProfile.this), "Failed to read value.", error.toException());
+                    }
+                });
             }
         });
         phoneNumberView2.setOnClickListener(new View.OnClickListener() {

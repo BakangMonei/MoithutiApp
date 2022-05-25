@@ -25,9 +25,6 @@
             android:name=".administratorsFinAid.adminFinAid"
             android:exported="false" />
         <activity
-            android:name=".exammtech.Student"
-            android:exported="false" />
-        <activity
             android:name=".botswanaaccountancycollege.biisc.MicrosoftAcademy"
             android:exported="false" />
         <activity
