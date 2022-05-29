@@ -62,7 +62,6 @@ public class forgotPassword extends AppCompatActivity {
                     Toast.makeText(forgotPassword.this, "Password Changed", Toast.LENGTH_SHORT).show();
                 }
             }
-
         });
     }
 

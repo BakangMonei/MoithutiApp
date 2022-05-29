@@ -35,15 +35,18 @@ import java.util.HashMap;
 
 public class signUp extends AppCompatActivity{
     // private DBHelper dbHelper;
-    private DatabaseReference myRef;
+
+
+    private DatabaseReference mRootRef;
     private FirebaseAuth mAuth;
+
     private FirebaseDatabase database;
 
 
     ProgressBar progressBar;
 
 
-    // public signUp(Context context){}
+    public signUp(Context context){}
 
 
     @Override
@@ -51,12 +54,11 @@ public class signUp extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_activity);
 
-        DatabaseReference myRef = database.getReference("message");
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        mRootRef = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+
 
         progressBar = new ProgressBar(this);
-
-        myRef.setValue("Hello, World");
 
 
         TextView RegistrationName = (TextView) findViewById(R.id.RegistrationName);
@@ -127,6 +129,7 @@ public class signUp extends AppCompatActivity{
                                 String registerIDPass){
         progressBar.getProgress();
 
+
         mAuth.createUserWithEmailAndPassword(registerEmail,registerPassword).addOnSuccessListener(new OnSuccessListener<AuthResult>(){
             public void onSuccess(AuthResult authResult){
                 HashMap<String,Object> map = new HashMap<>();
@@ -143,7 +146,7 @@ public class signUp extends AppCompatActivity{
                 map.put("IDPassword", registerIDPass);
 
 
-                myRef.child("Users").child(mAuth.getCurrentUser().getUid()).setValue(map)
+                mRootRef.child("Users").child(mAuth.getCurrentUser().getUid()).setValue(map)
                         .addOnCompleteListener(new OnCompleteListener<Void>(){
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -162,9 +165,7 @@ public class signUp extends AppCompatActivity{
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(signUp.this,e.getMessage().toString(),
                         Toast.LENGTH_LONG).show();
-
             }
         });
-
     }
 }

@@ -71,6 +71,7 @@ public class applyHereBAC extends AppCompatActivity {
                     registerLastName.requestFocus();
                     return;
                 }
+
                 if (email.isEmpty()) {
                     registerEmail.setError("email is needed!!");
                     registerEmail.requestFocus();
