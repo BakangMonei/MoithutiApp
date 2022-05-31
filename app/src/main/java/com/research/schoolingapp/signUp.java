@@ -43,11 +43,6 @@ public class signUp extends AppCompatActivity{
     private FirebaseDatabase database;
 
 
-    ProgressBar progressBar;
-
-
-    public signUp(Context context){}
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,8 +52,6 @@ public class signUp extends AppCompatActivity{
         mRootRef = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-
-        progressBar = new ProgressBar(this);
 
 
         TextView RegistrationName = (TextView) findViewById(R.id.RegistrationName);
@@ -114,7 +107,7 @@ public class signUp extends AppCompatActivity{
                 if(Password == rePassword && rePassword == Password){
                     Toast.makeText(signUp.this,"Passwords do not match",Toast.LENGTH_SHORT).show();
                 }
-                else {
+                else{
                     registerStudent(email, firstName, lastName, Password, rePassword, DOB, Gender, phoneNumber, Address, Country, IDPassport);
                 }
             }
@@ -127,7 +120,6 @@ public class signUp extends AppCompatActivity{
                                 String registerGender, String registerPhoneNumber,
                                 String registerPostalAddress, String registerCountry,
                                 String registerIDPass){
-        progressBar.getProgress();
 
 
         mAuth.createUserWithEmailAndPassword(registerEmail,registerPassword).addOnSuccessListener(new OnSuccessListener<AuthResult>(){
