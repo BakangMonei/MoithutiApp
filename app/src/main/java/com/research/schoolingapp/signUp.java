@@ -7,10 +7,6 @@ package com.research.schoolingapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.research.schoolingapp.databaseHelper.DBHelper;
-
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;

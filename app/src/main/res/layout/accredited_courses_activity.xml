@@ -21,7 +21,6 @@
         android:gravity="center_horizontal"
         android:text="@string/accreditedCourses"
         android:textAlignment="center" />
-
     <TextView
         android:id="@+id/accreditedCourseTextView"
         android:layout_width="wrap_content"

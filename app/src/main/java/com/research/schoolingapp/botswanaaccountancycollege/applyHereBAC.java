@@ -11,11 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.research.schoolingapp.R;
-import com.research.schoolingapp.databaseHelper.finAidDBHelper;
 import com.research.schoolingapp.databaseHelper.schoolDBHelper;
-import com.research.schoolingapp.financialAid;
-
-import org.w3c.dom.Text;
 
 public class applyHereBAC extends AppCompatActivity {
 

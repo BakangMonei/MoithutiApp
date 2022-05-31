@@ -1,19 +1,19 @@
 package com.research.schoolingapp.administratorsFinAid;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import com.research.schoolingapp.R;
-
 import com.research.schoolingapp.databaseHelper.*;
 import com.research.schoolingapp.financingOfStudendets.*;
 
-public class adminFinAid extends AppCompatActivity {
+import java.util.ArrayList;
 
+public class adminFinAid extends AppCompatActivity {
     private studentsApplications SA;
     private DBHelper dbHelper;
     private finAidDBHelper FDB;
@@ -40,7 +40,29 @@ public class adminFinAid extends AppCompatActivity {
         ApproveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(adminFinAid.this, "Successfully Approved", Toast.LENGTH_SHORT).show();
+                Intent intentSuccess = new Intent(adminFinAid.this, adminFinAid.class);
+                startActivity(intentSuccess);
+            }
+        });
 
+        NextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String studentApp = "";
+                ArrayList<admin> allApplications = AFADB.readStudentApplicationsAdminFinAid();
+                for (admin ap:allApplications){
+                    studentApp = studentApp + ap.getEmail() +"\nEmail: ";
+                    studentApp = studentApp + ap.getFirstName() +"\nfirstName: ";
+                    studentApp = studentApp + ap.getLastName() +"\nlastName: ";
+                    studentApp = studentApp + ap.getAddress() +"\nAddress: ";
+                    studentApp = studentApp + ap.getPhoneNumber() +"\nphoneNumber:";
+                    studentApp = studentApp + ap.getCourse1() +"\nCourse1: ";
+                    studentApp = studentApp + ap.getCourse2() +"\nCourse2: ";
+                    Toast.makeText(getApplicationContext(),ap.getEmail().toString(),Toast.LENGTH_SHORT).show();
+                }
+
+                StudentApplicationsView.setText(studentApp);
             }
         });
     }

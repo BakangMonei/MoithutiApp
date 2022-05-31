@@ -10,9 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.research.schoolingapp.R;
-import com.research.schoolingapp.google;
-
-import org.w3c.dom.Text;
 
 public class BACDepartments extends AppCompatActivity {
 

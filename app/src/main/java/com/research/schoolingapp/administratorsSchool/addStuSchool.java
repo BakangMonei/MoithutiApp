@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.research.schoolingapp.R;
-import com.research.schoolingapp.botswanaaccountancycollege.applyHereBAC;
 import com.research.schoolingapp.databaseHelper.schoolDBHelper;
 
 public class addStuSchool extends AppCompatActivity {

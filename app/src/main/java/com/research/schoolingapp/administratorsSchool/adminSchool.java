@@ -1,39 +1,17 @@
 package com.research.schoolingapp.administratorsSchool;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.research.schoolingapp.R;
-
-import java.lang.reflect.Member;
-import java.text.BreakIterator;
 import java.util.ArrayList;
-import java.util.List;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.research.schoolingapp.Students;
-import com.research.schoolingapp.databaseHelper.DBHelper;
 import com.research.schoolingapp.databaseHelper.schoolDBHelper;
-import com.research.schoolingapp.signUp;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.ProgressDialog;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -114,6 +92,4 @@ public class adminSchool extends AppCompatActivity {
             }
         });
     }
-
-
 }

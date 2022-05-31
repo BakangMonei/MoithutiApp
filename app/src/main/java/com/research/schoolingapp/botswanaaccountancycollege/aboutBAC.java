@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.research.schoolingapp.R;
 
-import org.w3c.dom.Text;
 
 public class aboutBAC extends AppCompatActivity {
 

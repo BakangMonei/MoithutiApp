@@ -13,7 +13,6 @@ package com.research.schoolingapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -22,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageButton;
 
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -31,7 +29,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.research.schoolingapp.administratorsFinAid.adminFinAid;
 import com.research.schoolingapp.administratorsSchool.adminSchool;
 import com.research.schoolingapp.databaseHelper.*;
-import com.research.schoolingapp.*;
 
 // For linking
 import android.content.Intent;

@@ -1,6 +1,5 @@
 package com.research.schoolingapp;
 
-import com.research.schoolingapp.databaseHelper.DBHelper;
 
 public class Students {
     // Attributes

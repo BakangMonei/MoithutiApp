@@ -5,11 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +15,6 @@ import android.widget.Toast;
 import com.research.schoolingapp.administratorsSchool.addStuSchool;
 import com.research.schoolingapp.botswanaaccountancycollege.*;
 
-import org.w3c.dom.Text;
 
 public class BotswanaAccountancyCollege extends AppCompatActivity {
 

@@ -11,9 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.research.schoolingapp.databaseHelper.*;
-import com.research.schoolingapp.botswanaaccountancycollege.*;
-
-import org.w3c.dom.Text;
 
 public class financialAid extends AppCompatActivity {
 
